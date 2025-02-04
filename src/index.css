@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+/* Theming Styles */
+@theme {
+  --color-translucent-form: rgba(255, 255, 255, 0.2);
+}
+
+@layer base {
+  body {
+    background: #1f4037; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #99f2c8,
+      #1f4037
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #99f2c8,
+      #1f4037
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+  }
+}
+
+@utility calc-form-wrapper {
+  /* Positioning the box */
+  @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  /* Styling the Box */
+  @apply w-[80vw] h-[25vh] bg-translucent-form rounded-lg shadow-lg p-4 border-amber-700;
+  /* Aligning the box */
+  @apply flex flex-col gap-7 justify-center items-center;
+}
+
+@utility calc-form {
+  @apply flex gap-5 items-center;
+}
