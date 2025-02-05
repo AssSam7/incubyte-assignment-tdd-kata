@@ -1,4 +1,4 @@
-import { CalculatorForm } from "./components/CalculatorForm";
+import CalculatorForm from "./components/CalculatorForm";
 
 function App() {
   return (
