@@ -11,5 +11,8 @@
 ## [LIVE URL] 🚀
 https://transcendent-halva-6d5ab3.netlify.app/
 
-## [Test Cases Execution] 
-![alt text](/tdd-success-img.png)
+## [Test Cases Execution] 🧪
+![Test cases Output](/tdd-success-img.png)
+
+## [User Interface Output] 🎨
+![UI Output](/ui-output-img.png)
