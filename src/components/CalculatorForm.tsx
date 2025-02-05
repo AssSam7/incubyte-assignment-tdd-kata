@@ -21,7 +21,7 @@ function CalculatorForm() {
           id="operands-expression"
           value={inputData}
           onChange={handleInputChange}
-          placeholder="Please enter your operands expression"
+          placeholder="Please enter your numbers expression"
           className="calc-form__input"
         />
 

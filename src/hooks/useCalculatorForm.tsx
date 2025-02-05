@@ -8,10 +8,48 @@ function useCalculatorForm() {
 
   /* Calculator Logic */
   const processCalculation = useCallback(() => {
-    if (inputData !== "") {
-      const operands = inputData.split(",");
+    /* Handling the inputs separated by commas */
+    if (inputData !== "" && inputData.match(/^[1-8](,[1-8])*$/)) {
+      const numbers = inputData.split(",");
 
-      const sum = operands.reduce((acc, cur) => {
+      const sum = numbers.reduce((acc, cur) => {
+        const num = parseInt(cur, 10);
+        if (num < 0) {
+          throw new Error("Negatives not allowed");
+        }
+        return acc + num;
+      }, 0);
+      setResult(sum);
+    }
+
+    /* Handling the inputs separated by \n & commas */
+    if (inputData !== "" && inputData.match(/^[1-8]\\n([1-8],[1-8])+$/)) {
+      const numbers = inputData.split("\n").map((line) => line.split(","));
+
+      const sum = numbers.reduce((acc, cur) => {
+        return (
+          acc +
+          cur.reduce((acc, cur) => {
+            const num = parseInt(cur, 10);
+            if (num < 0) {
+              throw new Error("Negatives not allowed");
+            }
+            return acc + num;
+          }, 0)
+        );
+      }, 0);
+      setResult(sum);
+    }
+
+    /* Handling the inputs separated by custom delimiter */
+    if (inputData !== "" && inputData.startsWith("//")) {
+      const delimiter = inputData[2];
+      const numbersArray = inputData
+        .slice(5, inputData.length)
+        .split(delimiter);
+      console.log(numbersArray);
+
+      const sum = numbersArray.reduce((acc, cur) => {
         const num = parseInt(cur, 10);
         if (num < 0) {
           throw new Error("Negatives not allowed");
