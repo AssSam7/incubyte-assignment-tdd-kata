@@ -8,13 +8,17 @@ function useCalculatorForm() {
 
   /* Calculator Logic */
   const processCalculation = useCallback(() => {
+    console.log("Hello");
     /* Handling the inputs separated by commas */
-    if (inputData !== "" && inputData.match(/^[1-8](,[1-8])*$/)) {
+    if (
+      inputData !== "" &&
+      parseInt(inputData[0]) > 0 &&
+      !inputData.includes("\n")
+    ) {
       const numbers = inputData.split(",");
 
       const sum = numbers.reduce((acc, cur) => {
         const num = parseInt(cur, 10);
-        console.log(num);
         if (num < 0) {
           throw new Error("Negatives not allowed");
         }
@@ -24,20 +28,20 @@ function useCalculatorForm() {
     }
 
     /* Handling the inputs separated by \n & commas */
-    if (inputData !== "" && inputData.match(/^[1-8]\\n([1-8],[1-8])+$/)) {
-      const numbers = inputData.split("\n").map((line) => line.split(","));
+    if (inputData !== "" && inputData.includes("\n")) {
+      const numbers = [
+        inputData.split("\n")[0],
+        ...inputData.split("\n")[1].split(","),
+      ];
+
+      console.log("Numbers: ", numbers);
 
       const sum = numbers.reduce((acc, cur) => {
-        return (
-          acc +
-          cur.reduce((acc, cur) => {
-            const num = parseInt(cur, 10);
-            if (num < 0) {
-              throw new Error("Negatives not allowed");
-            }
-            return acc + num;
-          }, 0)
-        );
+        const num = parseInt(cur, 10);
+        if (num < 0) {
+          throw new Error("Negatives not allowed");
+        }
+        return acc + num;
       }, 0);
       setResult(sum);
     }
@@ -73,8 +77,8 @@ function useCalculatorForm() {
       e.preventDefault();
       setIsCalculating(true);
       setTimeout(() => {
-        setIsCalculating(false);
         processCalculation();
+        setIsCalculating(false);
       }, 1000);
     },
     [processCalculation]

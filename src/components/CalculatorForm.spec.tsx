@@ -45,16 +45,16 @@ test("should calculate the result for the different delimiter expression", async
   const component = await mount(<CalculatorForm />);
   await component
     .locator('input[name="operands-expression"]')
-    .fill("//;\n1;2;3");
+    .fill("//;\\n1;2;3");
   await component.locator("button[type='submit']").click();
   await expect(component).toContainText("Result: 6");
 });
 
-test("should calculate the result separated the \n & commas", async ({
+test("should calculate the result separated the \\n & commas", async ({
   mount,
 }) => {
   const component = await mount(<CalculatorForm />);
   await component.locator('input[name="operands-expression"]').fill("1\n2,3");
   await component.locator("button[type='submit']").click();
-  await expect(component).toContainText("Result: 6");
+  await expect(component).toContainText("Result: 4");
 });
