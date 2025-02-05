@@ -2,14 +2,14 @@
 
 > This project has been developed with the Test Driven Development approach with the Unit tests written using the latest playwright
 
-[Tech Stack] ✨
+## [Tech Stack] ✨
 - React
 - TypeScript v4
 - TailwindCSS
 - PlayWright
 
-[LIVE URL] 🔥
+## [LIVE URL] 🚀
 https://transcendent-halva-6d5ab3.netlify.app/
 
-Test Cases Execution: 
+## [Test Cases Execution] 
 ![alt text](/tdd-success-img.png)
