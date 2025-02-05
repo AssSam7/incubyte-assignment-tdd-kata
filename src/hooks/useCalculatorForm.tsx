@@ -10,6 +10,7 @@ function useCalculatorForm() {
   const processCalculation = useCallback(() => {
     if (inputData !== "") {
       const operands = inputData.split(",");
+
       const sum = operands.reduce((acc, cur) => {
         const num = parseInt(cur, 10);
         if (num < 0) {
