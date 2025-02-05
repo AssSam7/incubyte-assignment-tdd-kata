@@ -32,7 +32,7 @@
   /* Positioning the box */
   @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
   /* Styling the Box */
-  @apply w-[80vw] h-[25vh] bg-translucent-form rounded-lg shadow-lg p-4 border-amber-700;
+  @apply w-[70vw] min-h-[30vh] bg-translucent-form rounded-lg shadow-lg p-8 border-amber-700;
   /* Aligning the box */
   @apply flex flex-col gap-7 justify-center items-center;
 }
@@ -45,6 +45,22 @@
   @apply p-[0.8rem] font-sans font-semibold outline-none bg-[#f8f8ff] border-[1px] border-[#dadcf5] rounded-[8px] text-[1.125rem] max-w-[484px] w-[100%];
 }
 
+@utility text-result {
+  @apply text-[20px] font-sans font-semibold text-white;
+  background: #fc466b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3f5efb,
+    #fc466b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3f5efb,
+    #fc466b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+/* Buttons */
 @utility btn-calculate {
   @apply text-[#fff] font-sans font-semibold p-[0.8rem] rounded-[8px] cursor-pointer;
   background: #f12711; /* fallback for old browsers */
@@ -57,5 +73,20 @@
     to right,
     #f5af19,
     #f12711
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@utility btn-reset {
+  @apply text-[#fff] font-sans font-semibold p-[0.8rem] rounded-[8px] cursor-pointer;
+  background: #000046; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #1cb5e0,
+    #000046
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #1cb5e0,
+    #000046
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

@@ -8,6 +8,7 @@ function CalculatorForm() {
     result,
     handleCalculate,
     handleInputChange,
+    handleReset,
   } = useCalculatorForm();
 
   /* Render the presentation layer */
@@ -25,13 +26,17 @@ function CalculatorForm() {
           className="calc-form__input"
         />
 
-        <button type="submit" className="btn-calculate">
-          {isCalculating ? "Calculating" : "Calculate"}
-        </button>
+        <div className="flex gap-3">
+          <button type="submit" className="btn-calculate">
+            {isCalculating ? "Calculating" : "Calculate"}
+          </button>
 
-        <button type="button">Reset</button>
+          <button type="button" className="btn-reset" onClick={handleReset}>
+            Reset
+          </button>
+        </div>
       </form>
-      {result ? <p>Result: {result}</p> : <></>}
+      {result ? <p className="text-result">Result: {result}</p> : <></>}
     </div>
   );
 }

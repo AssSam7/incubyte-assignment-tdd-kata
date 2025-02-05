@@ -14,6 +14,7 @@ function useCalculatorForm() {
 
       const sum = numbers.reduce((acc, cur) => {
         const num = parseInt(cur, 10);
+        console.log(num);
         if (num < 0) {
           throw new Error("Negatives not allowed");
         }
@@ -79,6 +80,11 @@ function useCalculatorForm() {
     [processCalculation]
   );
 
+  const handleReset = () => {
+    setInputData("");
+    setResult(null);
+  };
+
   /* Expose the state and event handlers */
   return {
     inputData,
@@ -86,6 +92,7 @@ function useCalculatorForm() {
     result,
     handleInputChange,
     handleCalculate,
+    handleReset,
   };
 }
 
