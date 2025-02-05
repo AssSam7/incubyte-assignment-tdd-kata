@@ -26,6 +26,17 @@ test("should show 'Calculating' while calculation is in progress", async ({
   );
 });
 
+test("should handle multiple numbers separated by commas and return the sum", async ({
+  mount,
+}) => {
+  const component = await mount(<CalculatorForm />);
+  await component
+    .locator('input[name="operands-expression"]')
+    .fill("1,2,3,5,6,7");
+  await component.locator("button[type='submit']").click();
+  await expect(component).toContainText("Result: 24");
+});
+
 test("should reset the input and result when reset button is clicked", async ({
   mount,
 }) => {
