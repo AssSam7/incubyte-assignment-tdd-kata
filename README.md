@@ -4,9 +4,9 @@
 
 ## [Tech Stack] ✨
 - React
-- TypeScript v4
-- TailwindCSS
-- PlayWright
+- TypeScript
+- TailwindCSS v4
+- Playwright
 
 ## [LIVE URL] 🚀
 https://transcendent-halva-6d5ab3.netlify.app/
